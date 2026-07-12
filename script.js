@@ -472,26 +472,3 @@ navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => nav.classList.remove('nav--open'));
 });
 
-/* -------------------------------------------------------------
-   Contact form (front-end only — placeholder submit)
-------------------------------------------------------------- */
-const contactForm = document.getElementById('contactForm');
-const formStatus = document.getElementById('formStatus');
-
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    formStatus.textContent = '$ отправка...';
-
-    // NOTE: замените этот setTimeout на реальный запрос к вашему backend
-    // или сервису (Formspree, Telegram Bot API, свой сервер и т.д.)
-    setTimeout(() => {
-      formStatus.textContent = '✓ заявка отправлена, отвечу в течение дня';
-      contactForm.reset();
-      submitBtn.disabled = false;
-    }, 900);
-  });
-}
